@@ -1,0 +1,63 @@
+.navbar {
+  height: 50px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  color: #555;
+
+  > .wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+
+    > .search {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      background-color: var(--background);
+      border-radius: 20px;
+      padding: 5px 10px;
+
+      > input {
+        border: none;
+        background-color: transparent;
+        color: var(--title);
+      }
+    }
+    > .items {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      > .item {
+        display: flex;
+        align-items: center;
+        position: relative;
+        color: var(--primary);
+
+        > .avatar {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+        }
+
+        > .badge {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          background-color: var(--error);
+          color: white;
+          position: absolute;
+          top: 0;
+          right: 0;
+          transform: translate(50%, -50%);
+        }
+      }
+    }
+  }
+}
