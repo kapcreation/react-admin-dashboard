@@ -69,6 +69,7 @@ const Datatable = () => {
         </Link>
       </div>
       <DataGrid
+        className='data-grid'
         rows={rows}
         columns={columns}
         pageSize={9}

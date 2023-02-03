@@ -11,7 +11,7 @@ import userImg from '../../assets/user.png'
 import { useColorMode } from '../../contexts/ColorModeContext';
 
 const Navbar = () => {
-  const { toggleColorMode } = useColorMode()
+  const { ColorModeToggle } = useColorMode()
 
   return (
     <div className='navbar'>
@@ -25,8 +25,8 @@ const Navbar = () => {
             <LanguageOutlinedIcon className='icon' />
             English
           </div>
-          <div className="item" onClick={toggleColorMode}>
-            <DarkModeOutlinedIcon className='icon' />
+          <div className="item">
+            <ColorModeToggle />
           </div>
           <div className="item">
             <FullscreenExitOutlinedIcon className='icon' />

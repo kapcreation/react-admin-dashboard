@@ -7,13 +7,17 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    color: var(--title);
 
     > .btn {
-      color: green;
-      border: 1px solid green;
+      color: var(--success);
+      border: 1px solid var(--success);
       padding: 5px;
       border-radius: 5px;
     }
+  }
+  > .data-grid {
+    color: var(--text);
   }
 
   .cell-img {
@@ -34,15 +38,15 @@
 
     &.active {
       background-color: rgba(0, 128, 0, 0.05);
-      color: green;
+      color: var(--success);
     }
     &.pending {
       background-color: rgba(255, 217, 0, 0.05);
-      color: goldenrod;
+      color: var(--warning);
     }
     &.passive {
       background-color: rgba(255, 0, 0, 0.05);
-      color: crimson;
+      color: var(--error);
     }
   }
   .cell-action {
@@ -56,12 +60,12 @@
       background-color: transparent;
 
       &:nth-child(1) {
-        color: darkblue;
-        border: 1px solid rgba(0, 0, 139, 0.596);
+        color: var(--primary);
+        border: 1px solid var(--primary);
       }
       &:nth-child(2) {
-        color: crimson;
-        border: 1px solid rgba(220, 20, 60, 0.6);
+        color: var(--error);
+        border: 1px solid var(--error);
       }
     }
   }

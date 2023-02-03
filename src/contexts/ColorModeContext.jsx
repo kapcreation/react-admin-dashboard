@@ -1,4 +1,6 @@
-import React, { createContext, useContext, useEffect, useRef } from "react";
+import React, { createContext, useContext, useEffect, useRef, useState } from "react";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
 
 export const ColorModeContext = createContext()
 
@@ -6,12 +8,27 @@ export const useColorMode = () => useContext(ColorModeContext)
 
 export const ColorModeProvider = ({ children }) => {
   const colorModeRef = useRef(null)
+  
+  const ColorModeToggle = () => {
+    const [active, setActive] = useState(JSON.parse(localStorage.getItem("darkMode")))
 
-  function toggleColorMode() {
-    colorModeRef.current.classList.toggle('dark')
+    function handleClick () {
+      colorModeRef.current.classList.toggle('dark')  
+      const darkMode = colorModeRef.current.classList.contains('dark')
+      localStorage.setItem("darkMode", JSON.stringify(darkMode))
 
-    const darkMode = colorModeRef.current.classList.contains('dark')
-    localStorage.setItem("darkMode", JSON.stringify(darkMode))
+      setActive(darkMode)
+    }
+
+    return (
+      <>
+        {
+          active ?
+          <WbSunnyIcon onClick={handleClick} /> :
+          <DarkModeOutlinedIcon onClick={handleClick} />
+        }
+      </>
+    )
   }
 
   useEffect(() => {
@@ -22,7 +39,7 @@ export const ColorModeProvider = ({ children }) => {
   }, [colorModeRef])
   
 
-  const value = { colorModeRef, toggleColorMode }
+  const value = { colorModeRef, ColorModeToggle }
   return (
     <ColorModeContext.Provider value={value}>
       {children}
