@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Home.scss'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import Navbar from '../../components/Navbar/Navbar'
@@ -8,11 +8,13 @@ import Chart from '../../components/Chart/Chart'
 import Table from '../../components/Table/Table'
 
 const Home = () => {
+  const [sidebarIsOpen, setSidebarIsOpen] = useState(false)
+
   return (
     <div className='home'>
-      <Sidebar />
+      <Sidebar isOpen={sidebarIsOpen} />
       <div className="home-container">
-        <Navbar />
+        <Navbar toggleSidebar={()=>setSidebarIsOpen(prev=>!prev)} />
         <div className="widgets">
           <Widget context="user" />
           <Widget context="order" />

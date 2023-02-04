@@ -13,10 +13,13 @@ import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSyst
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { Link } from 'react-router-dom';
+import { useColorMode } from '../../contexts/ColorModeContext';
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen }) => {
+  const { ColorModeToggle } = useColorMode()
+
   return (
-    <div className='sidebar'>
+    <div className={`sidebar ${!isOpen && "hidden"}`}>
       <div className="top">
         <Link to="/" className="logo">kap</Link>
       </div>
@@ -28,11 +31,11 @@ const Sidebar = () => {
             <span>Dashboard</span>
           </Link>
           <p className="title">Lists</p>
-          <Link to="/users" className='category'>
+          <Link to="/" className='category'>
             <PersonOutlineIcon className="icon" />
             <span>Users</span>
           </Link>
-          <Link to="/products" className='category'>
+          <Link to="/" className='category'>
             <StoreIcon className="icon" />
             <span>products</span>
           </Link>

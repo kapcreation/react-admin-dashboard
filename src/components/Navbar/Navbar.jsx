@@ -10,16 +10,20 @@ import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import userImg from '../../assets/user.png'
 import { useColorMode } from '../../contexts/ColorModeContext';
 
-const Navbar = () => {
+const Navbar = ({ toggleSidebar }) => {
   const { ColorModeToggle } = useColorMode()
 
   return (
     <div className='navbar'>
       <div className="wrapper">
-        <div className="search">
-          <input type="text" placeholder='Search...' />
-          <SearchOutlinedIcon />
-        </div>
+        <div className='left'>
+          <ListOutlinedIcon className='sidebar-toggle' onClick={toggleSidebar} />
+
+          <div className="search">
+            <input type="text" placeholder='Search...' />
+            <SearchOutlinedIcon />
+          </div>
+        </div> 
         <div className="items">
           <div className="item">
             <LanguageOutlinedIcon className='icon' />
@@ -38,9 +42,6 @@ const Navbar = () => {
           <div className="item">
             <ChatBubbleOutlineOutlinedIcon className='icon' />
             <div className="badge">9+</div>
-          </div>
-          <div className="item">
-            <ListOutlinedIcon className='icon' />
           </div>
           <div className="item">
             <img src={userImg} alt="" className='avatar' />

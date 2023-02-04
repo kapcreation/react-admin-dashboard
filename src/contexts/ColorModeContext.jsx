@@ -8,7 +8,7 @@ export const useColorMode = () => useContext(ColorModeContext)
 
 export const ColorModeProvider = ({ children }) => {
   const colorModeRef = useRef(null)
-  
+
   const ColorModeToggle = () => {
     const [active, setActive] = useState(JSON.parse(localStorage.getItem("darkMode")))
 
@@ -38,7 +38,6 @@ export const ColorModeProvider = ({ children }) => {
     }
   }, [colorModeRef])
   
-
   const value = { colorModeRef, ColorModeToggle }
   return (
     <ColorModeContext.Provider value={value}>

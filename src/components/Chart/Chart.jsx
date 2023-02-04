@@ -22,7 +22,7 @@ const Chart = ({ aspect, title }) => {
   return (
     <div className='chart'>
       <div className="title">{title}</div>
-      <ResponsiveContainer width="100%" aspect={aspect || 2 / 1}>
+      <ResponsiveContainer width="100%" minWidth="400px" aspect={aspect || 2 / 1}>
         <BarChart width={730} height={250} data={data}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />

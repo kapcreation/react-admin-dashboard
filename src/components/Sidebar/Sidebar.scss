@@ -1,7 +1,12 @@
 .sidebar {
-  flex: 1;
   min-height: 100vh;
   background-color: var(--bar);
+
+  @media screen and (max-width: 576px) {
+    &.hidden {
+      display: none;
+    }
+  }
 
   > .top {
     height: 50px;

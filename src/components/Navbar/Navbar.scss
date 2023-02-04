@@ -12,18 +12,40 @@
     justify-content: space-between;
     padding: 20px;
 
-    > .search {
+    > .left {
       display: flex;
-      align-items: center;
-      border: 1px solid var(--border);
-      background-color: var(--background);
-      border-radius: 20px;
-      padding: 5px 10px;
+      gap: 10px;
 
-      > input {
-        border: none;
-        background-color: transparent;
-        color: var(--title);
+      > .sidebar-toggle {
+        display: none;
+
+        @media screen and (max-width: 576px) {
+          display: block;
+        }
+      }
+      > .search {
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--border);
+        background-color: var(--background);
+        border-radius: 20px;
+        padding: 5px 10px;
+  
+        @media screen and (max-width: 768px) {
+          background-color: transparent;
+          border: none;
+          padding: 0;
+        }
+  
+        > input {
+          border: none;
+          background-color: transparent;
+          color: var(--title);
+  
+          @media screen and (max-width: 768px) {
+            display: none;
+          }
+        }
       }
     }
     > .items {
