@@ -1,35 +1,36 @@
 import React from 'react'
 import './Chart.scss'
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Legend, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const Chart = ({ aspect, title }) => {
     
   const data = [
-    { name: "January", Total: 1200 },
-    { name: "February", Total: 2100 },
-    { name: "March", Total: 800 },
-    { name: "April", Total: 1600 },
-    { name: "May", Total: 900 },
-    { name: "June", Total: 1700 },
+    { name: "Jan", value: 1200 },
+    { name: "Feb", value: 2100 },
+    { name: "Mar", value: 800 },
+    { name: "Apr", value: 1600 },
+    { name: "May", value: 900 },
+    { name: "Jun", value: 1700 },
+    { name: "Jul", value: 1500 },
+    { name: "Aug", value: 900 },
+    { name: "Sep", value: 1000 },
+    { name: "Oct", value: 1800 },
+    { name: "Nov", value: 1500 },
+    { name: "Dec", value: 1700 },
   ];
 
   return (
     <div className='chart'>
       <div className="title">{title}</div>
       <ResponsiveContainer width="100%" aspect={aspect || 2 / 1}>
-        <AreaChart width={730} height={250} data={data}
-        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-          <defs>
-            <linearGradient id="total" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8}/>
-              <stop offset="95%" stopColor="#8884d8" stopOpacity={0}/>
-            </linearGradient>
-          </defs>
-          <XAxis dataKey="name" stroke='gray' />
-          <CartesianGrid strokeDasharray="3 3" className='chart-grid' />
+        <BarChart width={730} height={250} data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis dataKey="value" />
           <Tooltip />
-          <Area type="monotone" dataKey="Total" stroke="#8884d8" fillOpacity={1} fill="url(#total)" />
-        </AreaChart>
+          <Legend />
+          <Bar dataKey="value" fill="#8884d8" />
+        </BarChart>
       </ResponsiveContainer>
     </div>
   )

@@ -37,7 +37,7 @@ const Navbar = () => {
           </div>
           <div className="item">
             <ChatBubbleOutlineOutlinedIcon className='icon' />
-            <div className="badge">5</div>
+            <div className="badge">9+</div>
           </div>
           <div className="item">
             <ListOutlinedIcon className='icon' />
